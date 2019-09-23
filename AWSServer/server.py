@@ -33,12 +33,12 @@ def serverWaitOk(instanceIp, client):
         status = instanceStatus['Status']
         checksPassed = status == 'ok'
         time.sleep(5)
-    
+
     if checksPassed:
         initServerCommands(instanceIp)
     else:
         print('An error has occurred booting the server')
-    
+
 #SSH connects to server and executes command to boot minecraft server
 def initServerCommands(instanceIp):
     # Connect/ssh to an instance
@@ -76,7 +76,7 @@ def initServerMC():
             region_name=Config.ec2_region
         )
         message = manageServer(client)
-    
+
     print(message)
     return render_template('index.html', ipMessage=message)
 
@@ -91,7 +91,7 @@ def manageServer(client):
     reservation = reservations[0]
 
     instances = reservation['Instances']
-    
+
     print("\nSERVER INSTANCES\n")
     print(instances)
     print("\n")
@@ -134,11 +134,11 @@ def startServer(client):
 
         state = instance['State']
         stateCode = state['Code']
-        
+
         print("\nSERVER INSTANCES\n")
         print(instances)
         print("\n")
-        
+
     ipAddress = instance['PublicIpAddress']
     returnString = 'Server is starting, this may take a few minutes.\nIP: ' + ipAddress
     #SETUP MULTIPROCESSING HERE INSTEAD OF REDIS

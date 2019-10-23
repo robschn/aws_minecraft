@@ -74,3 +74,5 @@ $aws stop (Stops the specified instance)
 $aws status (Returns information about the instance, i.e. if it is running, it's IP, it's last startTime)
 ```
 You, and anyone else you give the role and channel access to, should be able to toggle the selected AWS instance on or off when needed as well as view instance information on demand.
+
+Start up an Amazon Linux EC2 and assign it a admin role to allow it to use aws_cli. Do not use a user key.
